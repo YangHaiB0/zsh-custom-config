@@ -76,8 +76,8 @@ alias ltl="lt -l"
 
 
 ########## 基础环境变量配置 
+    export PATH="/opt/homebrew/opt/curl/bin:$PATH"
     export PATH="$PATH:/Users/guming/Library/Application Support/JetBrains/Toolbox/scripts"
-    export PATH="$PATH:/Applications/Sublime Text.app/Contents/SharedSupport/bin"
     export PATH=$HOMEBREW_REPOSITORY/bin:$PATH
 ########## 
 

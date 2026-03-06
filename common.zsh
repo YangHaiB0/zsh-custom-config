@@ -104,16 +104,13 @@ read_input() {
         prompt="$prompt (默认: $default_value)"
     fi
 
+    local input
     echo -n "$prompt "  # 显示提示信息
-    read input          # 读取用户输入
+    read -r input       # 读取用户输入,用 read -r 防止反斜杠转义
 
     # 如果用户没有输入，使用默认值
     if [[ -z "$input" && -n "$default_value" ]]; then
         input="$default_value"
     fi
-
-    eval "$var_name='$input'"  # 将用户输入赋值给指定变量
-
-    # 输出用户输入的值（如果有输入）
-    # [[ -z "$input" ]] || success "输入的值为: $input"
+    eval "$var_name=$(printf '%q' "$input")"
 }

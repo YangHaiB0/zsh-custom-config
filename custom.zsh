@@ -20,9 +20,6 @@ alias zshrc-custom=" zshrc-custom-read"
 alias ht=" history -t'%F %T' " # 以"yyyy-mm-dd HH:MM:ss"打印历史
 alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm alpine/dfimage"
 
-# thefuck 配置
-eval $(thefuck --alias)
-
 # colorls 配置 
 # ~/.oh-my-zsh/lib/directories.zsh
 unalias lsa
@@ -73,63 +70,3 @@ alias ltl="lt -l"
     zstyle ':omz:plugins:alias-finder' exact yes    # disabled by default
     zstyle ':omz:plugins:alias-finder' cheaper yes  # disabled by default
 ########## }}}
-
-
-########## 基础环境变量配置 
-    export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-    export PATH="$PATH:/Users/guming/Library/Application Support/JetBrains/Toolbox/scripts"
-    export PATH=$HOMEBREW_REPOSITORY/bin:$PATH
-########## 
-
-
-########## libpq 环境变量配置 
-    export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-    export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
-    export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
-########## 
-
-
-########## fzf 配置 
-    bindkey "ç" fzf-cd-widget
-    source <(fzf --zsh)
-##########
-
-
-######### tldr 配置
-    export TLDR_LANGUAGE="zh"
-######### 
-
-
-########## nvm 环境变量配置 
-    export NVM_DIR="$HOME/.nvm"
-    # This loads nvm
-    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  
-    # This loads nvm bash_completion
-    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" 
-########## 
-
-
-########## conda 环境变量配置 
-    # conda init "$(basename "${SHELL}")"
-    # >>> conda initialize >>>
-    # !! Contents within this block are managed by 'conda init' !!
-    __conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-    if [ $? -eq 0 ]; then
-        eval "$__conda_setup"
-    else
-        if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
-            . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
-        else
-            export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
-        fi
-    fi
-    unset __conda_setup
-    # <<< conda initialize <<<
-########## 
-
-
-########## sdkman 环境变量配置 
-    # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-    export SDKMAN_DIR="$HOME/.sdkman"
-    [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-########## 
